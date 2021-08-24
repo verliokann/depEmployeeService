@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://jmix.io/schema/ui/menu">
+
+    <menu id="application" caption="msg://com.company.jmixqsproject/menu.application" insertBefore="administration">
+        <item screen="User.browse" caption="msg://com.company.jmixqsproject.screen.user/UserBrowse.caption"/>
+        <item screen="themeSettingsScreen" caption="msg://io.jmix.ui.app.themesettings/themeSettings.caption"/>
+        <item screen="Talk.browse" caption="msg://com.company.jmixqsproject.screen.talk/talkBrowse.menu"/>
+        <item screen="CatalogContractType.browse"
+              caption="msg://com.company.jmixqsproject.screen.catalogcontracttype/catalogContractTypeBrowse.menu"/>
+        <item screen="CatalogDegree.browse"
+              caption="msg://com.company.jmixqsproject.screen.catalogdegree/catalogDegreeBrowse.menu"/>
+        <item screen="Position_.browse"
+              caption="msg://com.company.jmixqsproject.screen.catalogposition/catalogPositionBrowse.menu"/>
+        <item screen="Rank_.browse"
+              caption="msg://com.company.jmixqsproject.screen.catalogrank/catalogRankBrowse.menu"/>
+        <item screen="Employee.browse" caption="msg://com.company.jmixqsproject.screen.employee/employeeBrowse.menu"/>
+        <item screen="Contract.browse" caption="msg://com.company.jmixqsproject.screen.contract/contractBrowse.menu"/>
+    </menu>
+
+</menu-config>
