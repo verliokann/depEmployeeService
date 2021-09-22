@@ -9,9 +9,12 @@
                 <property name="degree" fetchPlan="_base"/>
                 <property name="rank" fetchPlan="_base"/>
                 <property name="position" fetchPlan="_base"/>
-                <property name="contractType" fetchPlan="_base"/>
+                <property name="contract" fetchPlan="_base">
+                    <property name="contractType" fetchPlan="_base"/>
+                </property>
             </fetchPlan>
             <loader/>
+            <collection id="contractDc" property="contract"/>
         </instance>
     </data>
     <facets>
@@ -27,8 +30,10 @@
                 caption="msg:///actions.Close"
                 icon="EDITOR_CANCEL"/>
     </actions>
-    <dialogMode height="600"
-                width="800"/>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
     <layout spacing="true" expand="editActions">
         <scrollBox id="scrollBox" spacing="true">
             <form id="form" dataContainer="employeeDc">
@@ -55,12 +60,6 @@
                             <action id="entityClear" type="entity_clear"/>
                         </actions>
                     </entityPicker>
-                    <entityPicker id="contractTypeField" property="contractType">
-                        <actions>
-                            <action id="entityLookup" type="entity_lookup"/>
-                            <action id="entityClear" type="entity_clear"/>
-                        </actions>
-                    </entityPicker>
                     <dateField id="dateOfBirthField" property="dateOfBirth"/>
                     <textField id="inipaField" property="inipa"/>
                     <textField id="rateSizeField" property="rateSize"/>
@@ -70,6 +69,27 @@
                     <textField id="cityPhoneField" property="cityPhone"/>
                 </column>
             </form>
+            <groupBox id="contractBox" caption="msg://com.company.jmixqsproject.entity/Employee.contract">
+                <table id="contractTable" dataContainer="contractDc" width="100%" height="200px">
+                    <actions>
+                        <action id="create" type="create"/>
+                        <action id="edit" type="edit"/>
+                        <action id="remove" type="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="number"/>
+                        <column id="approveDate"/>
+                        <column id="startDate"/>
+                        <column id="endDate"/>
+                        <column id="contractType"/>
+                    </columns>
+                    <buttonsPanel>
+                        <button action="contractTable.create"/>
+                        <button action="contractTable.edit"/>
+                        <button action="contractTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </groupBox>
         </scrollBox>
         <hbox id="editActions" spacing="true">
             <button id="commitAndCloseBtn" action="windowCommitAndClose"/>

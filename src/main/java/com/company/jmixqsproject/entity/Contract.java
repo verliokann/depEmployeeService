@@ -1,11 +1,14 @@
 package com.company.jmixqsproject.entity;
 
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
+import io.jmix.core.metamodel.annotation.DependsOnProperties;
+import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.UUID;
 
 @JmixEntity
@@ -16,6 +19,11 @@ public class Contract {
     @Column(name = "ID", nullable = false)
     @Id
     private UUID id;
+
+    @Column(name = "APPROVE_DATE", nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @NotNull
+    private Date approveDate;
 
     @Column(name = "NUMBER_", nullable = false, length = 50)
     @NotNull
@@ -36,6 +44,14 @@ public class Contract {
     @JoinColumn(name = "EMPLOYEE_ID")
     @ManyToOne(fetch = FetchType.LAZY)
     private Employee employee;
+
+    public Date getApproveDate() {
+        return approveDate;
+    }
+
+    public void setApproveDate(Date approveDate) {
+        this.approveDate = approveDate;
+    }
 
     public CatalogContractType getContractType() {
         return contractType;
@@ -83,5 +99,11 @@ public class Contract {
 
     public void setId(UUID id) {
         this.id = id;
+    }
+
+    @InstanceName
+    @DependsOnProperties({"number", "approveDate"})
+    public String getContractNumDate() {
+        return String.format("%s %s", number, approveDate);
     }
 }

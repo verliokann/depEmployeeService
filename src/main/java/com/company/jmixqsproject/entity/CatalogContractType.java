@@ -53,3 +53,5 @@ public class CatalogContractType {
         this.id = id;
     }
 }
+
+//jdbc:hsqldb:file:.jmix/hsqldb/jmixqsproject

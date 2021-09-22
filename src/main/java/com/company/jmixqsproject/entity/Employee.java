@@ -1,6 +1,7 @@
 package com.company.jmixqsproject.entity;
 
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
+import io.jmix.core.metamodel.annotation.Composition;
 import io.jmix.core.metamodel.annotation.DependsOnProperties;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @JmixEntity
@@ -50,16 +52,15 @@ public class Employee {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private CatalogPosition position;
 
-    @NotNull
-    @JoinColumn(nullable = false)
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    private Contract contract;
+    @Composition
+    @OneToMany(mappedBy = "employee")
+    private List<Contract> contract;
 
     @Column(name = "DATE_OF_BIRTH", nullable = false)
     @NotNull
     private LocalDate dateOfBirth;
 
-    @Column(name = "INIPA", length = 11)
+    @Column(name = "INIPA", length = 14)
     private String inipa;
 
     @Column(name = "RATE_SIZE", nullable = false)
@@ -80,11 +81,11 @@ public class Employee {
     @Column(name = "CITY_PHONE", length = 12)
     private String cityPhone;
 
-    public void setContract(Contract contract) {
+    public void setContract(List<Contract> contract) {
         this.contract = contract;
     }
 
-    public Contract getContract() {
+    public List<Contract> getContract() {
         return contract;
     }
 

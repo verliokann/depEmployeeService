@@ -6,7 +6,9 @@
     <data readOnly="true">
         <collection id="contractsDc"
                     class="com.company.jmixqsproject.entity.Contract">
-            <fetchPlan extends="_base"/>
+            <fetchPlan extends="_base">
+                <property name="contractType" fetchPlan="_base"/>
+            </fetchPlan>
             <loader id="contractsDl">
                 <query>
                     <![CDATA[select e from Contract e]]>
@@ -44,9 +46,11 @@
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
+                <column id="approveDate"/>
                 <column id="number"/>
                 <column id="startDate"/>
                 <column id="endDate"/>
+                <column id="contractType"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"

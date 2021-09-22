@@ -10,7 +10,9 @@
                 <property name="degree" fetchPlan="_base"/>
                 <property name="rank" fetchPlan="_base"/>
                 <property name="position" fetchPlan="_base"/>
-                <property name="contractType" fetchPlan="_base"/>
+                <property name="contract" fetchPlan="_base">
+                    <property name="contractType" fetchPlan="_base"/>
+                </property>
             </fetchPlan>
             <loader id="employeesDl">
                 <query>
@@ -56,7 +58,6 @@
                 <column id="degree"/>
                 <column id="rank"/>
                 <column id="position"/>
-                <column id="contractType"/>
                 <column id="dateOfBirth"/>
                 <column id="inipa"/>
                 <column id="rateSize"/>

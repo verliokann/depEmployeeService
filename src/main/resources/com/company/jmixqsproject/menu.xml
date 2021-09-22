@@ -13,8 +13,8 @@
               caption="msg://com.company.jmixqsproject.screen.catalogposition/catalogPositionBrowse.menu"/>
         <item screen="Rank_.browse"
               caption="msg://com.company.jmixqsproject.screen.catalogrank/catalogRankBrowse.menu"/>
-        <item screen="Employee.browse" caption="msg://com.company.jmixqsproject.screen.employee/employeeBrowse.menu"/>
         <item screen="Contract.browse" caption="msg://com.company.jmixqsproject.screen.contract/contractBrowse.menu"/>
+        <item screen="Employee.browse" caption="msg://com.company.jmixqsproject.screen.employee/employeeBrowse.menu"/>
     </menu>
 
 </menu-config>
