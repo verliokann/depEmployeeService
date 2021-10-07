@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://ribArticleEdit.caption"
+        focusComponent="form">
+    <data>
+        <instance id="ribArticleDc"
+                  class="com.company.jmixqsproject.entity.RibArticle">
+            <fetchPlan extends="_base">
+                <property name="rib" fetchPlan="_base">
+                    <property name="type" fetchPlan="_base"/>
+                    <property name="author" fetchPlan="_base"/>
+                </property>
+            </fetchPlan>
+            <loader/>
+            <instance id="ribDc" property="rib"/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="windowCommitAndClose" caption="msg:///actions.Ok"
+                icon="EDITOR_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="windowClose"
+                caption="msg:///actions.Close"
+                icon="EDITOR_CANCEL"/>
+    </actions>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout spacing="true" expand="editActions">
+        <form id="form" dataContainer="ribArticleDc">
+            <column width="350px">
+                <entityPicker id="ribField" property="rib">
+                    <actions>
+                        <action id="entityOpenComposition" type="entity_openComposition"/>
+                        <action id="entityClear" type="entity_clear"/>
+                    </actions>
+                </entityPicker>
+                <textField id="startPageField" property="startPage"/>
+                <textField id="endPageField" property="endPage"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

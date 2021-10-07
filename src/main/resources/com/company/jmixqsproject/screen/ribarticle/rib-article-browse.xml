@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
+        caption="msg://ribArticleBrowse.caption"
+        focusComponent="ribArticlesTable">
+    <data readOnly="true">
+        <collection id="ribArticlesDc"
+                    class="com.company.jmixqsproject.entity.RibArticle">
+            <fetchPlan extends="_base">
+                <property name="rib" fetchPlan="_base">
+                    <property name="type" fetchPlan="_base"/>
+                    <property name="author" fetchPlan="_base"/>
+                </property>
+            </fetchPlan>
+            <loader id="ribArticlesDl">
+                <query>
+                    <![CDATA[select e from RibArticle e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="lookupSelectAction"
+                caption="msg:///actions.Select"
+                icon="LOOKUP_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="lookupCancelAction"
+                caption="msg:///actions.Cancel"
+                icon="LOOKUP_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="ribArticlesTable" spacing="true">
+        <filter id="filter"
+                dataLoader="ribArticlesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="ribArticlesTable"
+                    width="100%"
+                    dataContainer="ribArticlesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="rib"/>
+                <column id="startPage"/>
+                <column id="endPage"/>
+            </columns>
+            <simplePagination/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="ribArticlesTable.create"/>
+                <button id="editBtn" action="ribArticlesTable.edit"/>
+                <button id="removeBtn" action="ribArticlesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

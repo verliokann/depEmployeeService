@@ -15,6 +15,11 @@
               caption="msg://com.company.jmixqsproject.screen.catalogrank/catalogRankBrowse.menu"/>
         <item screen="Contract.browse" caption="msg://com.company.jmixqsproject.screen.contract/contractBrowse.menu"/>
         <item screen="Employee.browse" caption="msg://com.company.jmixqsproject.screen.employee/employeeBrowse.menu"/>
+        <item screen="CatalogRibType.browse"
+              caption="msg://com.company.jmixqsproject.screen.catalogribtype/catalogRibTypeBrowse.menu"/>
+        <item screen="RibArticle.browse"
+              caption="msg://com.company.jmixqsproject.screen.ribarticle/ribArticleBrowse.menu"/>
+        <item screen="Rib.browse" caption="msg://com.company.jmixqsproject.screen.rib/ribBrowse.menu"/>
     </menu>
 
 </menu-config>
