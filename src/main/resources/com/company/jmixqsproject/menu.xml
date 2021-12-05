@@ -20,6 +20,8 @@
         <item screen="RibArticle.browse"
               caption="msg://com.company.jmixqsproject.screen.ribarticle/ribArticleBrowse.menu"/>
         <item screen="Rib.browse" caption="msg://com.company.jmixqsproject.screen.rib/ribBrowse.menu"/>
+        <item screen="DegreeStat.browse"
+              caption="msg://com.company.jmixqsproject.screen.degreestat/degreeStatBrowse.menu"/>
     </menu>
 
 </menu-config>

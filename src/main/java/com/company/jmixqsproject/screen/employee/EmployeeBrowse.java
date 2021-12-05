@@ -1,5 +1,6 @@
 package com.company.jmixqsproject.screen.employee;
 
+import io.jmix.ui.component.Table;
 import io.jmix.ui.screen.*;
 import com.company.jmixqsproject.entity.Employee;
 
@@ -7,4 +8,8 @@ import com.company.jmixqsproject.entity.Employee;
 @UiDescriptor("employee-browse.xml")
 @LookupComponent("employeesTable")
 public class EmployeeBrowse extends StandardLookup<Employee> {
+    @Subscribe("employeesTable")
+    public void onEmployeesTableColumnCollapse(Table.ColumnCollapseEvent<Employee> event) {
+        
+    }
 }

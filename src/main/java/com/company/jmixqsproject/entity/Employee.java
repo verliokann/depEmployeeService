@@ -14,7 +14,9 @@ import java.util.List;
 import java.util.UUID;
 
 @JmixEntity
-@Table(name = "EMPLOYEE")
+@Table(name = "EMPLOYEE", indexes = {
+        @Index(name = "IDX_EMPLOYEE_DEGREE_ID", columnList = "DEGREE_ID")
+})
 @Entity
 public class Employee {
     @JmixGeneratedValue
@@ -38,14 +40,15 @@ public class Employee {
     @NotNull
     private String lastName;
 
-    @JoinColumn(name = "DEGREE_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private CatalogDegree degree;
-
     @JoinColumn(name = "RANK_ID", nullable = false)
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private CatalogRank rank;
+
+    @JoinColumn(name = "DEGREE_ID", nullable = false)
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private CatalogDegree degree;
 
     @JoinColumn(name = "POSITION_ID", nullable = false)
     @NotNull
@@ -80,6 +83,14 @@ public class Employee {
 
     @Column(name = "CITY_PHONE", length = 12)
     private String cityPhone;
+
+    public CatalogDegree getDegree() {
+        return degree;
+    }
+
+    public void setDegree(CatalogDegree degree) {
+        this.degree = degree;
+    }
 
     public void setContract(List<Contract> contract) {
         this.contract = contract;
@@ -159,14 +170,6 @@ public class Employee {
 
     public void setRank(CatalogRank rank) {
         this.rank = rank;
-    }
-
-    public CatalogDegree getDegree() {
-        return degree;
-    }
-
-    public void setDegree(CatalogDegree degree) {
-        this.degree = degree;
     }
 
     public String getMiddleName() {

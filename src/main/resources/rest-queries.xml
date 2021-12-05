@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<queries xmlns="http://jmix.io/schema/rest/queries">
+    <query name="allUsers" entity="User" fetchPlan="all-users">
+        <jpql><![CDATA[select u from user]]></jpql>
+    </query>
+
+    <query name="allct" entity="CatalogContractType" fetchPlan="all-cct">
+        <jpql><![CDATA[select u from user]]></jpql>
+    </query>
+</queries>

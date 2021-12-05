@@ -1,0 +1,24 @@
+<fetchPlans xmlns="http://jmix.io/schema/core/fetch-plans">
+
+    <fetchPlan class="com.company.jmixqsproject.entity.User"
+               extends="_base"
+               name="all-users">
+        <property name="username"/>
+        <property name="active"/>
+    </fetchPlan>
+
+    <fetchPlan class="com.company.jmixqsproject.entity.CatalogContractType"
+               extends="_base"
+               name="all-сct">
+        <property name="id"/>
+        <property name="name"/>
+        <property name="abbreviation"/>
+    </fetchPlan>
+
+    <fetchPlan entity="Employee" name="employee-with-degree" extends="_base">
+        <property name="degree" fetchPlan="_base"/>
+    </fetchPlan>
+
+    <fetchPlan entity="CatalogDegree" name="catalogDegree-fetch-plan" extends="_base"/>
+
+</fetchPlans>

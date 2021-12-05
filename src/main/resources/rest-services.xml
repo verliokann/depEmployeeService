@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns="http://jmix.io/schema/rest/services">
+    <service name="testService">
+        <method name="getHello">
+            <param name="name"/>
+        </method>
+    </service>
+
+    <service name="employeeStatService">
+        <method name="getDegreeStat"/>
+        <method name="getEmployeeListCustom"/>
+        <method name="getEmployeeCustom">
+            <param name="employeeId"/>
+        </method>
+        <method name="getEmployeeListIdsCustom">
+            <param name="id1"/>
+            <param name="id2"/>
+        </method>
+    </service>
+</services>

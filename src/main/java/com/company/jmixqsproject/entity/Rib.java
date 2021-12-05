@@ -28,8 +28,8 @@ public class Rib {
     private CatalogRibType type;
 
     @JoinTable(name = "RIB_EMPLOYEE_LINK",
-            joinColumns = @JoinColumn(name = "RIB_ID"),
-            inverseJoinColumns = @JoinColumn(name = "EMPLOYEE_ID"))
+            joinColumns = @JoinColumn(name = "RIB_ID", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "ID"))
     @ManyToMany
     private List<Employee> author;
 

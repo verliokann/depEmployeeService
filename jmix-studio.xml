@@ -33,6 +33,22 @@
           <option name="url" value="jdbc:hsqldb:file:.jmix/hsqldb/jmixqsproject" />
           <option name="user" value="sa" />
         </SavedDbProperties>
+        <SavedDbProperties>
+          <option name="databaseName" value="employee" />
+          <option name="dbType" value="postgres" />
+          <option name="dbmsVersion" />
+          <option name="host" value="localhost" />
+          <option name="pass" value="Ljrnjh87915090!" />
+          <option name="url" value="jdbc:postgresql://localhost/employee" />
+          <option name="user" value="postgres" />
+        </SavedDbProperties>
+        <SavedDbProperties>
+          <option name="databaseName" value="jmixqsproject" />
+          <option name="dbType" value="hsqlinmem" />
+          <option name="dbmsVersion" />
+          <option name="url" value="jdbc:hsqldb:mem:jmixqsproject" />
+          <option name="user" value="sa" />
+        </SavedDbProperties>
       </list>
     </option>
   </component>
