@@ -5,6 +5,8 @@ import com.company.jmixqsproject.entity.DegreeStat;
 import com.company.jmixqsproject.entity.Employee;
 import io.jmix.core.DataManager;
 import io.jmix.core.entity.KeyValueEntity;
+import io.jmix.core.querycondition.LogicalCondition;
+import io.jmix.core.querycondition.PropertyCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +38,18 @@ public class EmployeeStatService {
                 .ids(id1, id2)
                 .list();
     }
-    // -----------------------  (начало) Сотрудник(и) по идентификатору(ам) ---------------------------------------
+    // -----------------------  (конец) Сотрудник(и) по идентификатору(ам) ---------------------------------------
+
+    // -----------------------  (начало) Список сотрудников по степени и званию ---------------------------------------
+
+    public List<Employee> getDegreeRankEmployeeCustom(UUID degreeId, UUID rankId) { // уч. степень и звание передаются по иденитфикаторам
+        return dataManager.load(Employee.class)
+                .query("SELECT e FROM Employee e WHERE e.degree.id = :degreeId and e.rank.id = :rankId")
+                .parameter("degreeId", degreeId)
+                .parameter("rankId", rankId)
+                .list();
+    }
+    // -----------------------  (конец) Список сотрудников по степени и званию ---------------------------------------
 
     // -----------------------  (начало) Количество докторов наук, кандидатов наук и неостепененных ---------------------------------------
     public List<DegreeStat> getDegreeStat(){
@@ -46,7 +59,6 @@ public class EmployeeStatService {
             stat.setDegreeCountId(degree.getId());
             stat.setDegeeName(degree.getName());
             stat.setDegreeCount(getDegreeCount(degree.getId()));
-            //stat.setDegreeCount(7);
             return stat;
         }).collect(Collectors.toList());
         return degreeStat;
@@ -58,6 +70,4 @@ public class EmployeeStatService {
                 .one();
     }
     // -----------------------  (конец) Количество докторов наук, кандидатов наук и неостепененных ---------------------------------------
-
-
 }

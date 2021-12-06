@@ -16,5 +16,9 @@
             <param name="id1"/>
             <param name="id2"/>
         </method>
+        <method name="getDegreeRankEmployeeCustom">
+            <param name="degreeId"/>
+            <param name="rankId"/>
+        </method>
     </service>
 </services>
