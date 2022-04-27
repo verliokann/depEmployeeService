@@ -8,14 +8,18 @@
 
     <service name="employeeStatService">
         <method name="getDegreeStat"/>
+
         <method name="getEmployeeListCustom"/>
+
         <method name="getEmployeeCustom">
             <param name="employeeId"/>
         </method>
+
         <method name="getEmployeeListIdsCustom">
             <param name="id1"/>
             <param name="id2"/>
         </method>
+
         <method name="getDegreeRankEmployeeCustom">
             <param name="degreeId"/>
             <param name="rankId"/>

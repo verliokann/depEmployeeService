@@ -54,6 +54,7 @@ public class EmployeeStatService {
     // -----------------------  (начало) Количество докторов наук, кандидатов наук и неостепененных ---------------------------------------
     public List<DegreeStat> getDegreeStat(){
         List<CatalogDegree> degrees = dataManager.load(CatalogDegree.class).all().fetchPlan("catalogDegree-fetch-plan").list();
+
         List<DegreeStat> degreeStat = degrees.stream().map(degree -> {
             DegreeStat stat = dataManager.create(DegreeStat.class);
             stat.setDegreeCountId(degree.getId());
